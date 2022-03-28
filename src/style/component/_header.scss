@@ -1,0 +1,16 @@
+header{
+    background-color: $col-1;
+    height: 80px;
+    -webkit-box-shadow: 0px -2px 10px 5px rgba(0,0,0,0.37); 
+    box-shadow: 0px -2px 10px 5px rgba(0,0,0,0.37);
+}
+
+
+.navbar-nav{
+    width: 100%;
+    .nav-item{
+        .nav-link{
+            font-size: 1.09em;
+        }
+    }
+}

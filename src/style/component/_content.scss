@@ -1,0 +1,10 @@
+.main-content{
+    padding: $gap*3 $gap*3 $gap*3 $gap*5;
+    grid-area: content;
+    h1{
+        font-size: 3rem;
+        span{
+            color:$col-2;
+        }
+    }
+}

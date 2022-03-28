@@ -1,0 +1,23 @@
+body{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    color: $col-1;
+}
+
+h1,h2,h3,h4{
+    font-family: 'Roboto', sans-serif;
+    color: $col-1;
+    font-weight: 500;
+}
+
+.main{
+    display: grid; 
+    grid-template-columns: 117px 1.7fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "aside content"; 
+}
+
+
+
