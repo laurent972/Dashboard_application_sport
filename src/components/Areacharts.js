@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
   {
@@ -46,32 +46,30 @@ const data = [
   },
 ];
 
-export default class BarreChart extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/simple-bar-chart-tpz8r';
+export default class Example extends PureComponent {
+  static demoUrl = 'https://codesandbox.io/s/simple-area-chart-4ujxw';
 
   render() {
     return (
- 
-        <BarChart
-          width={960}
-          height={300}
+      
+        <AreaChart
+          width={300}
+          height={400}
           data={data}
           margin={{
-            top: 5,
+            top: 10,
             right: 30,
-            left: 20,
-            bottom: 5,
+            left: 0,
+            bottom: 0,
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Legend />
-          <Bar dataKey="pv" fill="#8884d8" />
-          <Bar dataKey="uv" fill="#82ca9d" />
-        </BarChart>
-     
+          <Area type="monotone" dataKey="uv" stroke="#8884d8" fill="#8884d8" />
+        </AreaChart>
+    
     );
   }
 }

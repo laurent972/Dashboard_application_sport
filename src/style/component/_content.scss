@@ -1,10 +1,30 @@
 .main-content{
-    padding: $gap*3 $gap*3 $gap*3 $gap*5;
+    padding: $gap*3 $gap $gap*3 $gap*3;
     grid-area: content;
     h1{
         font-size: 3rem;
         span{
             color:$col-2;
         }
+    }
+}
+
+.data-display{
+    display: grid; 
+    grid-template-columns: 1.6fr 0.4fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "charts cards"; 
+}
+
+.display-charts { grid-area: charts; }
+.display-cards { grid-area: cards; }
+
+.bottom-charts{
+    display: flex;
+    width: 100%;
+    div{
+        width:33%;
     }
 }

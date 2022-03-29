@@ -10,8 +10,11 @@ const Content = () => {
         <section className='main-content'>
             <h1>Bonjour <span>{prenom}</span></h1>
             <span>Félicitation ! Vous avez explosé vos objectifs hier 👏</span>
-            <Charts />
-            <Cards />
+            <div className='data-display'>
+                <Charts />
+                <Cards />
+            </div>
+        
         </section>
     );
 };
