@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/rega_laurent_12_sportsee_220322/static/css/main.013fd726.css",
-    "main.js": "/rega_laurent_12_sportsee_220322/static/js/main.ca4aed94.js",
+    "main.css": "/rega_laurent_12_sportsee_220322/static/css/main.8a4ea54b.css",
+    "main.js": "/rega_laurent_12_sportsee_220322/static/js/main.440c7d38.js",
     "static/media/logo.svg": "/rega_laurent_12_sportsee_220322/static/media/logo.837414860efdf652f26ae7be654e06c5.svg",
     "static/media/nageur.svg": "/rega_laurent_12_sportsee_220322/static/media/nageur.e26dba434236828a108a786d8215cd31.svg",
     "static/media/velo.svg": "/rega_laurent_12_sportsee_220322/static/media/velo.d516c0e89dbb3aaab23afac6a130ca06.svg",
@@ -12,11 +12,11 @@
     "static/media/yoga.svg": "/rega_laurent_12_sportsee_220322/static/media/yoga.6c31a2775a609d06fd5d99eb347250ed.svg",
     "static/media/calories-icon.svg": "/rega_laurent_12_sportsee_220322/static/media/calories-icon.5db5a3aff9bd8f441f49792782c8262e.svg",
     "static/media/muscu.svg": "/rega_laurent_12_sportsee_220322/static/media/muscu.4fe7fb9fe3554121b3d42dcb489eefd0.svg",
-    "main.013fd726.css.map": "/rega_laurent_12_sportsee_220322/static/css/main.013fd726.css.map",
-    "main.ca4aed94.js.map": "/rega_laurent_12_sportsee_220322/static/js/main.ca4aed94.js.map"
+    "main.8a4ea54b.css.map": "/rega_laurent_12_sportsee_220322/static/css/main.8a4ea54b.css.map",
+    "main.440c7d38.js.map": "/rega_laurent_12_sportsee_220322/static/js/main.440c7d38.js.map"
   },
   "entrypoints": [
-    "static/css/main.013fd726.css",
-    "static/js/main.ca4aed94.js"
+    "static/css/main.8a4ea54b.css",
+    "static/js/main.440c7d38.js"
   ]
 }
