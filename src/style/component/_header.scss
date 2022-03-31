@@ -8,6 +8,7 @@ header{
 
 .navbar-nav{
     width: 100%;
+    flex-direction: row;
     .nav-item{
         .nav-link{
             font-size: 1.09em;

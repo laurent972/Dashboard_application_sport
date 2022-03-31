@@ -2,7 +2,7 @@
     padding: $gap*3 $gap $gap*3 $gap*3;
     grid-area: content;
     h1{
-        font-size: 3rem;
+        font-size: 2.7rem;
         span{
             color:$col-2;
         }
@@ -18,8 +18,11 @@
       "charts cards"; 
 }
 
-.display-charts { grid-area: charts; }
-.display-cards { grid-area: cards; }
+.display-charts { 
+    grid-area: charts;
+    padding:$gap 0;
+}
+
 
 .bottom-charts{
     display: flex;

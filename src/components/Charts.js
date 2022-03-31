@@ -9,7 +9,6 @@ import Radialchart from './Radialcharts';
 const Charts = () => {
     return (
         <div className='display-charts'>
-            <h2>Charts</h2>
             <BarreChart />
             <div className='bottom-charts'>
                 <Areacharts />
