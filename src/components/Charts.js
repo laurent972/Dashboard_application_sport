@@ -1,6 +1,6 @@
 import React from 'react';
 import Areacharts from './Areacharts';
-import BarreChart from './Barrecharts';
+import BarreCharts from './Barrecharts';
 import Radarcharts from './Radarcharts';
 import Radialchart from './Radialcharts';
 
@@ -9,7 +9,7 @@ import Radialchart from './Radialcharts';
 const Charts = () => {
     return (
         <div className='display-charts'>
-            <BarreChart />
+            <BarreCharts />
             <div className='bottom-charts'>
                 <Areacharts />
                 <Radarcharts />

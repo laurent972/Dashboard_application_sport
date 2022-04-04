@@ -1,85 +1,96 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { VictoryBar,VictoryChart,VictoryAxis, VictoryTheme, VictoryStack, VictoryGroup, VictoryLabel, VictoryLegend } from 'victory';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label, Line } from 'recharts';
 
 const data = [
-  {quarter: 1, poids: 69.85, calories: 2},
-  {quarter: 2, poids: 69.99, calories: 3},
-  {quarter: 3, poids: 69.85, calories: 4},
-  {quarter: 4, poids: 72.00, calories: 0},
-  {quarter: 5, poids: 69.85, calories: 5},
-  {quarter: 6, poids: 69.85, calories: 5},
-  {quarter: 7, poids: 68.05, calories: 7},
-  {quarter: 8, poids: 69.85, calories: 5},
-  {quarter: 9, poids: 69.85, calories: 6},
-  {quarter: 10, poids: 69.85, calories: 7}
+  {
+    name: '1',
+    uv: 4000,
+    pv: 2400,
+    amt: 2400,
+  },
+  {
+    name: '2',
+    uv: 3000,
+    pv: 1398,
+    amt: 2210,
+  },
+  {
+    name: '3',
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
+  },
+  {
+    name: '4',
+    uv: 2780,
+    pv: 3908,
+    amt: 2000,
+  },
+  {
+    name: '5',
+    uv: 1890,
+    pv: 4800,
+    amt: 2181,
+  },
+  {
+    name: '6',
+    uv: 2390,
+    pv: 3800,
+    amt: 2500,
+  },
+  {
+    name: '7',
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: '8',
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: '9',
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+  {
+    name: '10',
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
 ];
 
 const Barrecharts = () => {
   return (
     <div className='bar-charts'>
-      <VictoryChart domainPadding={20} theme={VictoryTheme.material} height={250} width={800}>
-
-      <VictoryLabel
-        x={5}
-        y={10}
-        textAnchor="left"
-        text="Activité quotidienne"
-        style={[
-          { fontSize: 14, fontFamily: "Roboto", fontWeight:"500" }
-        ]}
-      />
-
-      <VictoryLegend 
-        x={550} y={5}
-        orientation="horizontal"
-        gutter={20}
         
-        data={[
-          { name: "Poids(kg)", symbol: { fill: "#282D30" } },
-          { name: "Calories brûlées (kcal)", symbol: { fill: "#E60000" } }
-        ]}
+        <BarChart
+          width={1020}
+          height={300}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" height={1} />
+          <XAxis dataKey="name">
+            <Label value="Pages of my website" position="top"/>
+          </XAxis>
+          <YAxis orientation="right" axisLine={false} tickLine={false} tickMargin={30} />
 
-        style={{
-          labels: {fontSize: 10, fontFamily:"Roboto", fontWeight:"500", fill:"#74798C"}
-        }}
+          <Tooltip />
+          <Legend verticalAlign="top" height={36} iconType="circle" align="right" />
+          <Bar dataKey="pv" fill="#282D30" barSize={7} radius={[10, 10, 0, 0]} />
+          <Bar dataKey="uv" fill="#E60000" barSize={7} radius={[10, 10, 0, 0]} />
+        </BarChart>
       
-      />
-      <VictoryAxis
-          tickValues={[1, 2, 3, 4, 5, 6,7,8,9,10]}
-          tickFormat={["1", "2", "3", "4","5 ", "6", "7", "8","9", "10"]}
-        />
-      <VictoryAxis
-          dependentAxis
-          orientation="right"
-          tickFormat={["1", "2", "3"]}
-          domain={{y: [69, 71]}}
-          
-        />
-        
-      <VictoryGroup offset={10}   style={{ data: { width: 7 } }} colorScale={["#282D30", "#E60000"]} >
-        <VictoryBar
-          cornerRadius={{ top: 4}}
-          data={data}
-          // data accessor for x values
-          x="quarter"
-          // data accessor for y values
-          y="poids"
-        />
-
-        <VictoryBar
-          cornerRadius={{ top: 4}}
-          data={data}
-          // data accessor for x values
-          x="quarter"
-          // data accessor for y values
-          y="calories"
-        />
-
-      </VictoryGroup>
-     
-      </VictoryChart>
-  
     </div>
   );
 };

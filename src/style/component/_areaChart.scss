@@ -1,0 +1,12 @@
+.area-chart{
+    background: $col-2;
+    border-radius: 5px;
+    width:33%;
+    margin-right:1%;
+    margin-top: 2%;
+    padding-top: 5%;
+    &:nth-child(3){
+        margin-right: 0;
+    }
+
+}
