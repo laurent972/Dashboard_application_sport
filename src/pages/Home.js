@@ -1,16 +1,23 @@
 import React from 'react';
 import Aside from '../components/Aside';
-import Content from '../components/Content';
 import Header from '../components/Header';
+import Charts from '../components/Charts';
+import Cards from '../components/Cards';
 
 const Home = () => {
+   
     return (
         <>
             <Header />
-            <h1>Totot</h1>
             <main className='main' aria-label='main-content'>
                 <Aside />
-                <Content />
+                <section className='main-content'>
+                    <div className='data-display'>
+                        <Charts />
+                        <Cards />
+                    </div>
+                
+                </section>
             </main>
 
             
