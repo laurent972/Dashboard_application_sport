@@ -1,6 +1,7 @@
 .main-content{
-    padding: $gap*3 $gap $gap*3 $gap*3;
+    padding: $gap*1.15 $gap $gap*3 $gap*1.2;
     grid-area: content;
+    
     h1{
         font-size: 2.7rem;
         span{
@@ -11,7 +12,7 @@
 
 .data-display{
     display: grid; 
-    grid-template-columns: 1.6fr 0.4fr; 
+    grid-template-columns: 80% 20%; 
     grid-template-rows: 1fr; 
     gap: 0px 0px; 
     grid-template-areas: 
@@ -21,13 +22,17 @@
 .display-charts { 
     grid-area: charts;
     padding:$gap 0;
+    .loading{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 
 .bottom-charts{
     display: flex;
-    width: 1020px;
-    div{
-      
-    }
+    width: 100%; 
 }
+

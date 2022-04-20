@@ -5,14 +5,13 @@ import prot from '../assets/protein-icon.svg';
 import carb from '../assets/carbs-icon.svg';
 import fat from '../assets/fat-icon.svg';
 
-const Cards = () => {
-
+const Cards = (props) => {
     return (
-        <div className='display-cards'>
-            <Card img={cal} title='1,930kCal' text='Calories' />
-            <Card img={prot} title='155g' text='Proteines' />
-            <Card img={carb} title='290g' text='Glucides' />
-            <Card img={fat} title='50g' text='Lipides'  />
+        <div className=''>
+            <Card img={cal} title={props.keydata.calorieCount +'kCal'} text='Calories' />
+            <Card img={prot} title={props.keydata.proteinCount +'g'} text='Proteines' />
+            <Card img={carb} title={props.keydata.carbohydrateCount +'g'} text='Glucides' />
+            <Card img={fat} title={props.keydata.lipidCount +'g'} text='Lipides'  />
         </div>
     );
 };

@@ -1,9 +1,11 @@
 .display-cards {
      grid-area: cards;
-     padding-right: $gap*3;
+     padding-right: $gap;
+     padding-left: $gap;
      display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    padding-top: 1em;
     
  }
 
@@ -16,7 +18,7 @@
     border-radius: 5px;
 
     .title-h3{
-        font-size: 1.15rem;
+        font-size: 100%;
     }
 
     img{

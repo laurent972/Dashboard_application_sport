@@ -12,10 +12,10 @@ const Home = () => {
             <main className='main' aria-label='main-content'>
                 <Aside />
                 <section className='main-content'>
-                    <div className='data-display'>
+                    
                         <Charts />
-                        <Cards />
-                    </div>
+                      
+                   
                 
                 </section>
             </main>

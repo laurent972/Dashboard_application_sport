@@ -1,5 +1,8 @@
-import React from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Label, Line } from 'recharts';
+import React, { useEffect, useState } from 'react';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { useParams } from 'react-router';
+import {GetUserActivity} from '../api/service';
+
 
 const data = [
   {
@@ -64,33 +67,61 @@ const data = [
   },
 ];
 
+
 const Barrecharts = () => {
+
+  const {id} = useParams();
+  const [activity, setActivity] = useState([]);
+  const [loading, setLoading] = useState(false);
+ 
+
+  useEffect(() =>{
+    GetUserActivity(id).then(response =>{
+      setActivity(response)
+      setLoading(true)
+    }); 
+  },[id])
+
+
+
+
   return (
     <div className='bar-charts'>
-        
-        <BarChart
-          width={1020}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" height={1} />
-          <XAxis dataKey="name">
-            <Label value="Pages of my website" position="top"/>
-          </XAxis>
-          <YAxis orientation="right" axisLine={false} tickLine={false} tickMargin={30} />
+     
+        {loading &&
+        <ResponsiveContainer width="100%" height={300}>
+            <BarChart
+              width={700}
+              height={300}
+              data={activity.sessions}
+                margin={{
+                  top: 5,
+                  right: 30,
+                  left: 0,
+                  bottom: 5,
+                }}
+              >
+              <CartesianGrid strokeDasharray="3 3" height={1} />
+              
+              <XAxis dataKey={
+                activity.sessions.forEach(element =>{
+                   return  activity.sessions.indexOf(element)+1
+               } )
+                } />
+                
 
-          <Tooltip />
-          <Legend verticalAlign="top" height={36} iconType="circle" align="right" />
-          <Bar dataKey="pv" fill="#282D30" barSize={7} radius={[10, 10, 0, 0]} />
-          <Bar dataKey="uv" fill="#E60000" barSize={7} radius={[10, 10, 0, 0]} />
-        </BarChart>
-      
+              <YAxis  orientation="right" />  
+              <YAxis dataKey="kilogram" datakey="" axisLine={false} tickLine={false} tickMargin={30} type="number" domain={["dataMin -1", "dataMax"]} allowDecimals={false} />
+
+              <Tooltip />
+              <Legend verticalAlign="top" height={36} iconType="circle" align="right" />
+              <Bar name="my dick" dataKey="kilogram" fill="#282D30" barSize={7} radius={[10, 10, 0, 0]}/>
+             
+              <Bar name="my dick2 " dataKey="calories" fill="#E60000" barSize={7} radius={[10, 10, 0, 0]} />
+           
+            </BarChart>
+            </ResponsiveContainer>
+        }
     </div>
   );
 };

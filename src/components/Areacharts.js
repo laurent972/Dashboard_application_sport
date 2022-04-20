@@ -1,5 +1,7 @@
-import React from 'react';
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import React, { useEffect, useState } from 'react';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import { useParams } from 'react-router';
+import {GetUserSession} from '../api/service';
 
 const data = [
   {
@@ -60,13 +62,45 @@ const CustomTooltip = ({ active, payload }) => {
 };
 
 const Areacharts = () => {
+  const {id} = useParams();
+  const [session, setSession] = useState([]);
+  const [loading, setLoading] = useState(false);
+  useEffect(() =>{
+        GetUserSession(id).then(response =>{
+            setSession(response)
+            setLoading(true)
+        });
+
+    },[id])
+
+    function day(){
+      session.sessions.forEach(element => {
+          if(element.day === 1) element.day = 'L';
+          if(element.day === 2) element.day= 'M';
+          if(element.day === 3) element.day = 'M';
+          if(element.day === 4) element.day = 'J';
+          if(element.day === 5) element.day = 'V';
+          if(element.day === 6) element.day = 'S';
+          if(element.day === 7) element.day = 'D';
+      });
+        return session.sessions
+    }
+
+  {loading &&  
+    day()
+  }
+  
+
+
+
+
   return (
     <div className='area-chart'>
-       
+          <ResponsiveContainer width="100%" height="100%">
         <AreaChart
-          width={390}
+          width={120}
           height={200}
-          data={data}
+          data={session.sessions}
           margin={{
             top: 0,
             right: 90,
@@ -75,12 +109,12 @@ const Areacharts = () => {
           }}
         >
           <CartesianGrid horizontal={false} vertical={false} x={-50} />
-          <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: 'white'}} />
+          <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{fill: 'white'}} />
           <YAxis axisLine={false} tick={false} />
           <Tooltip content={CustomTooltip} />
-          <Area type="monotone" dataKey="uv" stroke="#fff" fill="transparent" />
+          <Area type="monotone" dataKey="sessionLength" stroke="#fff" fill="transparent" />
         </AreaChart>
-       
+        </ResponsiveContainer>
       
     </div>
   );

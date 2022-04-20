@@ -1,7 +1,7 @@
 aside{
     background-color: $col-1;
-    width:117px;
-    height: 100vh;
+    width:100%;
+    height: 100%;
     grid-area: aside;
     display: flex;
     justify-content: center;
@@ -20,6 +20,9 @@ aside{
             display: block;
             margin-bottom: 1em;
             cursor: pointer;
+            img{
+                width: 80%;
+            }
         }
     }
 }
