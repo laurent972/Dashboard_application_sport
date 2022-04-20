@@ -53,7 +53,7 @@ const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip">
-        <p className="label">{`${payload[0].value}`}</p>
+        <p className="label">{`${payload[0].value}`} min</p>
       </div>
     );
   }
@@ -65,6 +65,11 @@ const Areacharts = () => {
   const {id} = useParams();
   const [session, setSession] = useState([]);
   const [loading, setLoading] = useState(false);
+  const stylish = {
+    background:'red'
+  }
+
+
   useEffect(() =>{
         GetUserSession(id).then(response =>{
             setSession(response)
@@ -111,8 +116,8 @@ const Areacharts = () => {
           <CartesianGrid horizontal={false} vertical={false} x={-50} />
           <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{fill: 'white'}} />
           <YAxis axisLine={false} tick={false} />
-          <Tooltip content={CustomTooltip} />
-          <Area type="monotone" dataKey="sessionLength" stroke="#fff" fill="transparent" />
+          <Tooltip content={CustomTooltip} contentStyle={stylish} />
+          <Area type="monotone" dataKey="sessionLength" stroke="#fff" fill="transparent" strokeWidth={2} />
         </AreaChart>
         </ResponsiveContainer>
       

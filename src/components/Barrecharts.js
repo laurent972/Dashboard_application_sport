@@ -115,9 +115,9 @@ const Barrecharts = () => {
 
               <Tooltip />
               <Legend verticalAlign="top" height={36} iconType="circle" align="right" />
-              <Bar name="my dick" dataKey="kilogram" fill="#282D30" barSize={7} radius={[10, 10, 0, 0]}/>
+              <Bar name="Poids (kg)" dataKey="kilogram" fill="#282D30" barSize={7} radius={[10, 10, 0, 0]}/>
              
-              <Bar name="my dick2 " dataKey="calories" fill="#E60000" barSize={7} radius={[10, 10, 0, 0]} />
+              <Bar name="Calories brûlées (kCal) " dataKey="calories" fill="#E60000" barSize={7} radius={[10, 10, 0, 0]} />
            
             </BarChart>
             </ResponsiveContainer>

@@ -9,4 +9,12 @@
         margin-right: 0;
     }
 
+    .custom-tooltip{
+        background: $white;
+        padding: 3px 10px 0;
+        border: 0;
+        .label{
+            font-size: 0.8rem!important;
+        }
+    }
 }
