@@ -4,8 +4,16 @@ import cal from '../assets/calories-icon.svg';
 import prot from '../assets/protein-icon.svg';
 import carb from '../assets/carbs-icon.svg';
 import fat from '../assets/fat-icon.svg';
+import PropTypes from 'prop-types';
 
-const Cards = (props) => {
+
+
+/**
+ * display cards
+ * @param  {array number} props
+ */
+
+const Cards = (props) => {   
     return (
         <div className=''>
             <Card img={cal} title={props.keydata.calorieCount +'kCal'} text='Calories' />
@@ -16,4 +24,9 @@ const Cards = (props) => {
     );
 };
 
+Cards.propTypes = {
+    keydata: PropTypes.object
+}
+
 export default Cards;
+

@@ -1,22 +1,12 @@
 import React from 'react';
-import { RadialBarChart, RadialBar, PolarAngleAxis, Label, ResponsiveContainer, Legend } from 'recharts';
+import { RadialBarChart, RadialBar, PolarAngleAxis,  ResponsiveContainer } from 'recharts';
+import PropTypes from 'prop-types';
 
-const data = [
-  {
-  
-    score: 0.12,
-
-  }
-];
-
-const style = {
-  top: '50%',
-  right: 0,
-  transform: 'translate(0, -50%)',
-  lineHeight: '24px',
-};
-
-
+/**
+ * 
+ * Display score
+ * @returns 
+ */
 
 const RadialBarcharts = (props) => {
 
@@ -25,8 +15,6 @@ const RadialBarcharts = (props) => {
 
     return (    
     <div className='radial-chart'>
-     
-       
         <ResponsiveContainer  height={300}>
         <RadialBarChart cx="50%" cy="50%"
          innerRadius="70%" outerRadius="100%" 
@@ -75,7 +63,11 @@ const RadialBarcharts = (props) => {
         </ResponsiveContainer>  
       </div>
     );
-  
 }
+
+RadialBarcharts.propTypes = {
+  keydata: PropTypes.object
+}
+
 
 export default RadialBarcharts;

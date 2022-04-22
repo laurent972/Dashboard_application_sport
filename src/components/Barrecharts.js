@@ -4,68 +4,26 @@ import { useParams } from 'react-router';
 import {GetUserActivity} from '../api/service';
 
 
-const data = [
-  {
-    name: '1',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: '2',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: '3',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: '4',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: '5',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: '6',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: '7',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-  {
-    name: '8',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-  {
-    name: '9',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-  {
-    name: '10',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+/**
+ * 
+ * Displaying weight/calories
+ * @returns 
+ */
+
+
+const CustomTooltip = ({ active, payload }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip-barChart">
+        <p className="label">{`${payload[0].value}`}kg</p>
+        <p className="label">{`${payload[1].value}`}Kcal</p>
+        
+      </div>
+    );
+  }
+  return null;
+};
+
 
 
 const Barrecharts = () => {
@@ -74,6 +32,7 @@ const Barrecharts = () => {
   const [activity, setActivity] = useState([]);
   const [loading, setLoading] = useState(false);
  
+    // mise a jour des données utilisateur 
 
   useEffect(() =>{
     GetUserActivity(id).then(response =>{
@@ -81,8 +40,6 @@ const Barrecharts = () => {
       setLoading(true)
     }); 
   },[id])
-
-
 
 
   return (
@@ -103,22 +60,26 @@ const Barrecharts = () => {
               >
               <CartesianGrid strokeDasharray="3 3" height={1} />
               
-              <XAxis dataKey={
-                activity.sessions.forEach(element =>{
-                   return  activity.sessions.indexOf(element)+1
-               } )
-                } />
+              <XAxis  dataKey="day" />
                 
-
               <YAxis  orientation="right" />  
-              <YAxis dataKey="kilogram" datakey="" axisLine={false} tickLine={false} tickMargin={30} type="number" domain={["dataMin -1", "dataMax"]} allowDecimals={false} />
+              <YAxis dataKey="kilogram" axisLine={false} tickLine={false} tickMargin={30} type="number" domain={["dataMin -1", "dataMax"]} allowDecimals={false} />
 
-              <Tooltip />
+              <Tooltip content={CustomTooltip}/>
               <Legend verticalAlign="top" height={36} iconType="circle" align="right" />
               <Bar name="Poids (kg)" dataKey="kilogram" fill="#282D30" barSize={7} radius={[10, 10, 0, 0]}/>
              
               <Bar name="Calories brûlées (kCal) " dataKey="calories" fill="#E60000" barSize={7} radius={[10, 10, 0, 0]} />
-           
+              <text
+                x="10%"
+                y="10%"
+                textAnchor="middle"
+                dominantBaseline="middle"
+                className="barChart-title"
+                fill="#020203"
+              >
+                Activité quotidienne
+              </text>
             </BarChart>
             </ResponsiveContainer>
         }

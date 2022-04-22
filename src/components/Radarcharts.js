@@ -4,52 +4,15 @@ import { useParams } from 'react-router';
 import { GetUserPerformance} from '../api/service';
 
 
-const data = [
-  {
-    subject: 'Intensité',
-    A: 120,
-    B: 110,
-    fullMark: 150,
-  },
-  {
-    subject: 'Vitesse',
-    A: 98,
-    B: 130,
-    fullMark: 150,
-  },
-  {
-    subject: 'Force',
-    A: 86,
-    B: 130,
-    fullMark: 150,
-  },
-  {
-    subject: 'Endurance',
-    A: 99,
-    B: 100,
-    fullMark: 150,
-  },
-  {
-    subject: 'Energie',
-    A: 85,
-    B: 90,
-    fullMark: 150,
-  },
-  {
-    subject: 'Cardio',
-    A: 65,
-    B: 85,
-    fullMark: 150,
-  },
-];
-
-
 
 const Radarcharts = () => {
 
   const {id} = useParams();
   const [perf, setPerf] = useState([]);
   const [loading, setLoading] = useState(false);
+
+      // mise a jour des données utilisateur 
+
     useEffect(() =>{
 
       GetUserPerformance(id).then(response =>{
@@ -59,6 +22,11 @@ const Radarcharts = () => {
 
     },[id]);
 
+
+    /***
+     * Display labels
+     * @return array
+     */
     function kind(){
       perf.data.forEach(element => {
           if(element.kind === 2) element.kind = 'Energie';

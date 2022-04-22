@@ -10,4 +10,20 @@
         font-size: 0.9rem;
         color:$grey-dark!important;
     }
+
+    .custom-tooltip-barChart{
+        background: $col-2;
+        padding: 5px 5px 2px 5px ;
+        .label{
+            color: $white;
+            font-size: 0.85rem;
+        }
+    }
+
+    .barChart-title{
+        font-weight: 700;
+        color: $col-1;
+    }
+
 }
+

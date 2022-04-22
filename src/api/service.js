@@ -1,5 +1,11 @@
+/**
+ * Fucntions getting data from api
+ * @param  {number} id
+ */
+
 // user Profil
 export let userInfo= []
+
 export async function GetUserInfos(id) {
     await fetch(`http://localhost:3000/user/${id}`)
        .then(response => response.json())
@@ -9,6 +15,7 @@ export async function GetUserInfos(id) {
       });
     return userInfo   
 };
+
 
 // user's activity
 export let userActivity= []
