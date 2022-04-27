@@ -42,6 +42,17 @@ const Barrecharts = () => {
   },[id])
 
 
+  function dateFormat(){
+    activity.sessions.map(element=> {
+      const date = new Date(element.day)
+      return element.day = date.toLocaleDateString()
+    } )
+   }
+   
+  {loading &&
+    dateFormat()
+  }
+
   return (
     <div className='bar-charts'>
      
@@ -60,10 +71,10 @@ const Barrecharts = () => {
               >
               <CartesianGrid strokeDasharray="3 3" height={1} />
               
-              <XAxis  dataKey="day" />
+              <XAxis  dataKey="day" fontSize={11}/>
                 
-              <YAxis  orientation="right" />  
-              <YAxis dataKey="kilogram" axisLine={false} tickLine={false} tickMargin={30} type="number" domain={["dataMin -1", "dataMax"]} allowDecimals={false} />
+              <YAxis fontSize={11} orientation="right" />  
+              <YAxis fontSize={11} dataKey="kilogram" axisLine={false} tickLine={false} tickMargin={30} type="number" domain={["dataMin -1", "dataMax"]} allowDecimals={false} />
 
               <Tooltip content={CustomTooltip}/>
               <Legend verticalAlign="top" height={36} iconType="circle" align="right" />
