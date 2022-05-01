@@ -30,6 +30,7 @@ const Charts = () => {
         
     },[id])
 
+    console.log(data);
     //Stockage des données
     const userProfil = data.userInfos;
     const userKeyData = data.keyData;

@@ -26,7 +26,6 @@ const Areacharts = () => {
   const [session, setSession] = useState([]);
   const [loading, setLoading] = useState(false);
 
-
     // mise a jour des données utilisateur 
 
   useEffect(() =>{

@@ -10,11 +10,9 @@ const Radarcharts = () => {
   const {id} = useParams();
   const [perf, setPerf] = useState([]);
   const [loading, setLoading] = useState(false);
-
       // mise a jour des données utilisateur 
 
     useEffect(() =>{
-
       GetUserPerformance(id).then(response =>{
           setPerf(response)
           setLoading(true)
@@ -22,7 +20,7 @@ const Radarcharts = () => {
 
     },[id]);
 
-
+    console.log(perf);
     /***
      * Display labels
      * @return array

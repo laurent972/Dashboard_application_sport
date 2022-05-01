@@ -18,7 +18,11 @@ const RadialBarcharts = (props) => {
         <ResponsiveContainer  height={300}>
         <RadialBarChart cx="50%" cy="50%"
          innerRadius="70%" outerRadius="100%" 
-         barSize={20} data={objectif} startAngle={-270} endAngle={90} fill="#FF0000"  
+         barSize={20} 
+         
+         data={objectif} 
+         
+         startAngle={-270} endAngle={90} fill="#FF0000"  
            width={400}
           height={350}>
         <PolarAngleAxis

@@ -25,34 +25,21 @@ const CustomTooltip = ({ active, payload }) => {
 };
 
 
-
 const Barrecharts = () => {
 
   const {id} = useParams();
   const [activity, setActivity] = useState([]);
   const [loading, setLoading] = useState(false);
- 
+
     // mise a jour des données utilisateur 
 
   useEffect(() =>{
     GetUserActivity(id).then(response =>{
-      setActivity(response)
-      setLoading(true)
+        setActivity(response)
+        setLoading(true)
     }); 
   },[id])
-
-
-  function dateFormat(){
-    activity.sessions.map(element=> {
-      const date = new Date(element.day)
-      return element.day = date.toLocaleDateString()
-    } )
-   }
-   
-  {loading &&
-    dateFormat()
-  }
-
+console.log(activity);
   return (
     <div className='bar-charts'>
      
@@ -78,9 +65,11 @@ const Barrecharts = () => {
 
               <Tooltip content={CustomTooltip}/>
               <Legend verticalAlign="top" height={36} iconType="circle" align="right" />
+
               <Bar name="Poids (kg)" dataKey="kilogram" fill="#282D30" barSize={7} radius={[10, 10, 0, 0]}/>
              
               <Bar name="Calories brûlées (kCal) " dataKey="calories" fill="#E60000" barSize={7} radius={[10, 10, 0, 0]} />
+              
               <text
                 x="10%"
                 y="10%"
@@ -94,6 +83,8 @@ const Barrecharts = () => {
             </BarChart>
             </ResponsiveContainer>
         }
+
+
     </div>
   );
 };
