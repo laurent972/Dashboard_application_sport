@@ -30,6 +30,5 @@ Then launch the app, in the terminal :
 
 Then type 'y' for validation request, App will mount automatically on your browser
 
-App will be launched by default on http://localhost:3001/rega_laurent_12_sport-see_220322/12
 With user id : 12
 By changing end of the URL with 18, data will change, for demo, only user 12 or 17 are availables
